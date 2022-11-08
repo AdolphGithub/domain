@@ -1547,7 +1547,6 @@
 .dscloud.me
 .brasilia.me
 .diskstation.me
-.synology.me
 .org.mg
 .nom.mg
 .gov.mg
@@ -1783,6 +1782,7 @@
 .pro.om
 .med.om
 .us.org
+.eu.org
 .ae.org
 .com.pf
 .edu.pf
