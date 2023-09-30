@@ -11,9 +11,7 @@
     }
   ],
   "require": {
-    "php": ">=7.0.0"
-  },
-  "provide": {
+    "php": ">=7.0.0",
     "ext-mbstring": "*"
   },
   "autoload": {
