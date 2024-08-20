@@ -10,6 +10,11 @@ class Domain
     private static $cdn_domains = [];
     private static $gtld_registers = [];
 
+    private static function getSeparator()
+    {
+        return DIRECTORY_SEPARATOR != '/' ? "\r\n": "\n";
+    }
+
     /**
      * 解析域名和地址.
      * @param $url
@@ -145,7 +150,7 @@ class Domain
 
         $gtld_domains = file_get_contents(dirname(__DIR__) . '/deps/gtld.txt');
 
-        $gtld_domains = explode("\n", $gtld_domains);
+        $gtld_domains = explode(self::getSeparator(), $gtld_domains);
 
         self::$gtld_domains = $gtld_domains;
 
@@ -164,7 +169,7 @@ class Domain
 
         $cctld_domains = file_get_contents(dirname(__DIR__) . '/deps/cctld.txt');
 
-        $cctld_domains = explode("\n", $cctld_domains);
+        $cctld_domains = explode(self::getSeparator(), $cctld_domains);
 
         self::$cctld_domains = $cctld_domains;
 
@@ -180,7 +185,7 @@ class Domain
     {
         if(!self::$cdn_domains) {
             $cdn_domains = file_get_contents(dirname(__DIR__) . '/deps/cdn.txt');
-            $cdn_domains = explode("\n", $cdn_domains);
+            $cdn_domains = explode(self::getSeparator(), $cdn_domains);
 
             self::$cdn_domains = $cdn_domains;
         }
