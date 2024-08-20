@@ -37,10 +37,18 @@ class Domain
             ? str_replace(':', '', $info['host'])
             : $info['host'];
 
+        if(isset($info['port'])) {
+            $port = $info['port'];
+        }else{
+            $port = strpos($info['host'], ':') !== false
+                ? $port[1] ?? '80'
+                : (($info['scheme'] ?? '') == 'http' ? '80' : '443');
+        }
+
         // 开始解析.
-        list($host, $port) = strpos($info['host'], ':') !== false
-            ? explode($info['host'], ':')
-            : [$info['host'], (($info['scheme'] ?? '') == 'http' ? '80' : '443')];
+        $host = strpos($info['host'], ':') !== false
+            ? explode($info['host'], ':')[0]
+            : $info['host'];
 
         $is_ip = filter_var($host,FILTER_VALIDATE_IP,FILTER_FLAG_IPV4|FILTER_FLAG_IPV6);
 
