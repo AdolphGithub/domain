@@ -71,11 +71,7 @@ class Domain
             // http://xn--ciqpnv5y6jjyman86w.xn--czru2d/
             $code = new Translate();
             // 尝试处理一次. 不然会有问题. 截取后缀等可能都有问题.
-            try{
-                $translate_host = $code->decode($host);
-            }catch (\Exception $exception) {
-                $translate_host = $host;
-            }
+            $translate_host = $code->decode($host);
 
             $host = $translate_host;
         }

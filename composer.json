@@ -11,7 +11,8 @@
     }
   ],
   "require": {
-    "php": ">=7.0.0"
+    "php": ">=7.0.0",
+    "algo26-matthias/idna-convert": "v3.1.1"
   },
   "provide": {
     "ext-mbstring": "*"
